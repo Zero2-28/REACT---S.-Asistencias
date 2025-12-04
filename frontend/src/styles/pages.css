@@ -1,0 +1,10 @@
+.page-container {
+  padding: 20px;
+}
+
+.page-title {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #1e293b;
+}
