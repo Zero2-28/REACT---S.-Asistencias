@@ -1,0 +1,396 @@
+/* ====== LAYOUT GENERAL DEL DASHBOARD ====== */
+
+.student-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ====== HEADER ====== */
+
+.sd-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 22px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #0f172a, #1d4ed8);
+  color: #f9fafb;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.4);
+}
+
+.sd-title {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.sd-subtitle {
+  margin: 6px 0 0;
+  font-size: 0.95rem;
+  color: #e5e7eb;
+}
+
+.sd-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  background: rgba(15, 23, 42, 0.4);
+  border-radius: 12px;
+  padding: 8px 14px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+}
+
+.sd-badge-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.sd-badge-code {
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+/* ====== CARDS RESUMEN ====== */
+
+.sd-summary {
+  display: grid;
+  grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.3fr);
+  gap: 18px;
+}
+
+.sd-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 18px 20px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+  border: 1px solid #e5e7eb;
+}
+
+.sd-card-main h2,
+.sd-card-side h3 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+  color: #0f172a;
+}
+
+.sd-card-text {
+  margin: 0 0 16px;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.sd-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.sd-stat {
+  background: #f9fafb;
+  border-radius: 12px;
+  padding: 8px 10px;
+  border: 1px solid #e5e7eb;
+}
+
+.sd-stat-label {
+  display: block;
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-bottom: 4px;
+}
+
+.sd-stat-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.sd-stat-value.positive {
+  color: #16a34a; /* verde */
+}
+
+.sd-stat-value.warning {
+  color: #f97316; /* naranja */
+}
+
+.sd-stat-value.info {
+  color: #2563eb; /* azul */
+}
+
+.sd-card-side p {
+  margin: 4px 0;
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+/* ====== LAYOUT PRINCIPAL: CALENDARIO + LISTA ====== */
+
+.sd-main-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
+  gap: 18px;
+}
+
+/* ====== CALENDARIO ====== */
+
+.calendar-card {
+  background: #ffffff;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.calendar-header h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #0f172a;
+}
+
+.calendar-subtitle {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.calendar-month {
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+
+/* grid del calendario */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.calendar-weekday {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  color: #6b7280;
+  padding-bottom: 4px;
+}
+
+.calendar-day {
+  position: relative;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  min-height: 50px;
+  font-size: 0.9rem;
+  padding: 4px 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.calendar-day.empty {
+  background: transparent;
+  border: none;
+  cursor: default;
+}
+
+.calendar-day .day-number {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.calendar-day .day-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #22c55e;
+  align-self: flex-end;
+}
+
+/* días con asistencia */
+.calendar-day.has-attendance {
+  border-color: #bfdbfe;
+  background: #eff6ff;
+}
+
+/* día hoy */
+.calendar-day.today {
+  border-color: #2563eb;
+}
+
+/* seleccionado */
+.calendar-day.selected {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  border-color: #1d4ed8;
+}
+
+.calendar-day.selected .day-number {
+  color: #f9fafb;
+}
+
+.calendar-day.selected .day-dot {
+  background: #bbf7d0;
+}
+
+/* hover */
+.calendar-day:not(.empty):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+}
+
+/* ====== LISTA DE ASISTENCIAS ====== */
+
+.attendance-card {
+  background: #ffffff;
+}
+
+.attendance-header h2 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #0f172a;
+}
+
+.attendance-date {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.attendance-empty {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.attendance-list {
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.attendance-item {
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  padding: 10px 12px;
+  background: #f9fafb;
+}
+
+.attendance-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.teacher-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #111827;
+}
+
+.status-pill {
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-weight: 600;
+}
+
+/* colores por estado */
+.status-present {
+  background: #ecfdf3;
+  color: #15803d;
+  border-color: #bbf7d0;
+}
+
+.status-late {
+  background: #fff7ed;
+  color: #ea580c;
+  border-color: #fed7aa;
+}
+
+.status-excused {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border-color: #bfdbfe;
+}
+
+.status-absent {
+  background: #fef2f2;
+  color: #b91c1c;
+  border-color: #fecaca;
+}
+
+.status-unknown {
+  background: #f3f4f6;
+  color: #4b5563;
+  border-color: #e5e7eb;
+}
+
+.attendance-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.attendance-notes {
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: #4b5563;
+}
+
+/* ====== RESPONSIVE ====== */
+
+@media (max-width: 900px) {
+  .sd-summary {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sd-main-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sd-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .sd-badge {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .calendar-grid {
+    gap: 4px;
+  }
+
+  .calendar-day {
+    min-height: 42px;
+    padding: 3px 4px;
+  }
+
+  .attendance-item {
+    padding: 8px 9px;
+  }
+}

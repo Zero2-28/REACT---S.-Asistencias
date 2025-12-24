@@ -1,0 +1,106 @@
+/* Contenedor de la tabla de asistencia */
+.attendance-table-wrapper {
+  margin-top: 16px;      /* 👈 solo margen arriba */
+  margin-left: 0;        /* 👈 forzamos alineado a la izquierda del contenido */
+  margin-right: 0;
+  max-width: 100%;
+  width: 100%;
+  overflow-x: auto;
+
+  background: #0701012e;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 18px;
+  padding: 16px 20px;
+
+  box-shadow: 0 18px 40px rgba(0, 76, 255, 0.14);
+  box-sizing: border-box; /* 👈 el padding ya cuenta dentro del ancho */
+}
+
+/* Tabla específica de registrar asistencia */
+.attendance-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.attendance-table th,
+.attendance-table td {
+  padding: 10px 12px;
+  text-align: left;
+}
+
+/* Cabecera fija oscura (match login) */
+.attendance-table thead th {
+  background: #0f172a;
+  color: #f9fafb;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+/* Filas alternadas y hover suave */
+.attendance-table tbody tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+.attendance-table tbody tr:hover {
+  background: #e0f2fe;
+}
+
+/* Ajustar ancho de columnas pequeñas */
+.attendance-table th:first-child,
+.attendance-table td:first-child {
+  width: 70px;
+}
+
+.attendance-table th:last-child,
+.attendance-table td:last-child {
+  width: 170px;     /* un poco más ancho para “Acciones” */
+}
+
+/* Botón para quitar asistencia */
+.btn-remove {
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid #fecaca;
+  background: #fee2e2;
+  color: #b91c1c;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-remove:hover {
+  background: #fecaca;
+  border-color: #fca5a5;
+  color: #7f1d1d;
+}
+
+/* Barra de info (Fecha / Hora) alineada con la tabla */
+.attendance-info-bar {
+  background: #c800ff43;  
+  max-width: 1100px;        /* mismo ancho que la tabla */
+  width: 100%;
+  margin: 0 auto 12px;      /* centrado + separación inferior */
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 0.95rem;
+  color: #0f172a;
+}
+
+.attendance-info-bar {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto 12px;
+  padding: 10px 14px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  border-radius: 999px;
+  background: #e0f2fe;
+  color: #0f172a;
+  font-size: 0.95rem;
+}
+

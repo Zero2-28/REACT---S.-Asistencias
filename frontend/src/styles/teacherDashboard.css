@@ -1,0 +1,231 @@
+.teacher-dashboard {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Header del panel */
+.teacher-header {
+  margin-bottom: 4px;
+}
+
+.teacher-subtitle {
+  margin-top: 4px;
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+
+/* Tarjeta principal del docente */
+.teacher-header-card {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 22px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #eff6ff, #ffffff);
+  border: 1px solid #dbeafe;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+}
+
+.teacher-main-info h2 {
+  margin: 0 0 6px;
+  font-size: 1.4rem;
+  color: #0f172a;
+}
+
+.teacher-main-info p {
+  margin: 2px 0;
+  font-size: 0.95rem;
+  color: #475569;
+}
+
+.teacher-main-info span {
+  font-weight: 600;
+  color: #1d4ed8;
+}
+
+/* Meta / stats */
+.teacher-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.teacher-badge {
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background-color: #e0f2fe;
+  color: #0369a1;
+  font-weight: 600;
+}
+
+.teacher-stat {
+  min-width: 110px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  text-align: right;
+}
+
+.teacher-stat-label {
+  display: block;
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.teacher-stat-value {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1d4ed8;
+}
+
+.teacher-actions .btn-primary {
+  padding-inline: 16px;
+}
+
+/* Grid principal */
+.teacher-main-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1.4fr;
+  gap: 20px;
+}
+
+/* Tarjetas de secciones */
+.teacher-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  padding: 16px 18px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
+}
+
+.teacher-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.teacher-card-header h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #0f172a;
+}
+
+.teacher-tag {
+  font-size: 0.8rem;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background-color: #dbeafe;
+  color: #1d4ed8;
+  font-weight: 500;
+}
+
+.teacher-tag.secondary {
+  background-color: #e5e7eb;
+  color: #374151;
+}
+
+/* Texto vacío */
+.teacher-empty {
+  font-size: 0.9rem;
+  color: #6b7280;
+  padding: 10px 4px;
+}
+
+/* Tablas responsivas dentro de tarjetas */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* versión compacta de la tabla */
+.table.table-sm td,
+.table.table-sm th {
+  padding: 6px 8px;
+  font-size: 0.85rem;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .teacher-header-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .teacher-meta {
+    justify-content: flex-start;
+  }
+
+  .teacher-main-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .teacher-dashboard {
+    gap: 18px;
+  }
+
+  .teacher-header-card {
+    padding: 16px;
+  }
+
+  .teacher-card {
+    padding: 14px;
+  }
+}
+
+.teacher-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+/* botón secundario tipo link, pero sin subrayado */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid #ffc62b;
+  background: #ffbc70;
+
+  color: #1f2937;
+  font-size: 0.9rem;
+  font-weight: 500;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;         /* 👈 quita la línea del link */
+}
+
+/* aseguramos que nunca se subraye en estados de link */
+.btn-secondary:link,
+.btn-secondary:visited,
+.btn-secondary:hover,
+.btn-secondary:active {
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background: #ff981b;
+  border-color: #fdbf23;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}

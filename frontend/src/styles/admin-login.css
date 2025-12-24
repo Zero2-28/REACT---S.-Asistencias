@@ -1,0 +1,154 @@
+/* src/styles/admin-login.css */
+/* Estilo tipo StudentLogin: limpio, centrado, card, inputs suaves, azul marino + celeste */
+
+:root{
+  --bg: #f6f9ff;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: #e2e8f0;
+
+  --navy: #0b1b3a;     /* azul marino */
+  --blue: #2563eb;     /* azul */
+  --sky: #38bdf8;      /* celeste */
+  --danger: #b42318;
+  --success: #027a48;
+}
+
+/* Contenedor general */
+.admin-login-page{
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    radial-gradient(900px 500px at 15% 10%, rgba(56,189,248,.22), transparent 60%),
+    radial-gradient(700px 450px at 85% 15%, rgba(37,99,235,.18), transparent 55%),
+    linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+}
+
+/* Card */
+.admin-login-card{
+  width: 100%;
+  max-width: 440px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(2, 6, 23, .10);
+  padding: 24px;
+}
+
+/* Header */
+.admin-login-header{
+  margin-bottom: 18px;
+}
+
+.admin-badge{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--navy);
+  background: rgba(56,189,248,.18);
+  border: 1px solid rgba(56,189,248,.35);
+}
+
+.admin-title{
+  margin: 10px 0 4px;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: .2px;
+}
+
+.admin-subtitle{
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Mensajes */
+.msg-error{
+  margin: 10px 0 0;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(180, 35, 24, .08);
+  border: 1px solid rgba(180, 35, 24, .20);
+  color: var(--danger);
+  font-size: 13px;
+}
+
+/* Form */
+.admin-form{
+  margin-top: 14px;
+}
+
+.admin-form label{
+  display: block;
+  margin: 12px 0 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.admin-form input{
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: #fff;
+  outline: none;
+  font-size: 14px;
+  color: var(--text);
+  transition: border-color .15s ease, box-shadow .15s ease, transform .05s ease;
+}
+
+.admin-form input::placeholder{
+  color: #94a3b8;
+}
+
+.admin-form input:focus{
+  border-color: rgba(37,99,235,.55);
+  box-shadow: 0 0 0 4px rgba(56,189,248,.18);
+}
+
+/* Botón */
+.admin-btn{
+  width: 100%;
+  margin-top: 16px;
+  padding: 12px 14px;
+  border: 0;
+  border-radius: 14px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: .2px;
+  background: linear-gradient(135deg, var(--navy), var(--blue));
+  box-shadow: 0 14px 30px rgba(37,99,235,.18);
+  transition: transform .08s ease, filter .15s ease;
+}
+
+.admin-btn:hover{ filter: brightness(1.03); }
+.admin-btn:active{ transform: translateY(1px); }
+
+/* Footer */
+.admin-footer{
+  margin-top: 14px;
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.admin-footer b{
+  color: var(--navy);
+}
+
+/* Responsive */
+@media (max-width: 420px){
+  .admin-login-card{ padding: 18px; border-radius: 16px; }
+  .admin-title{ font-size: 20px; }
+}

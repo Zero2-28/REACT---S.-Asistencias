@@ -1,19 +1,153 @@
+/* ====== HEADER GLOBAL ====== */
+
+.app-header {
+  background: #065BB5;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 10px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+/* Lado izquierdo (título) */
+.app-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.app-header-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff; /* azul oscuro neutro */
+  letter-spacing: 0.02em;
+}
+
+/* Navegación */
+.app-header-nav {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Enlaces del menú */
+.nav-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 6px 10px;
+  border-radius: 999px;
+  transition:
+    background-color 0.16s ease,
+    color 0.16s ease,
+    transform 0.12s ease;
+}
+
+.nav-link:hover {
+  background-color: #e0f2fe; /* celeste suave */
+  color: #0369a1; /* azul más fuerte */
+  transform: translateY(-1px);
+}
+
+/* Botón logout */
+.logout-btn {
+  background-color: #ef4444;
+  color: #ffffff;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: 0 8px 18px rgba(239, 68, 68, 0.25);
+  transition:
+    background-color 0.16s ease,
+    box-shadow 0.16s ease,
+    transform 0.12s ease;
+}
+
+.logout-btn:hover {
+  background-color: #dc2626;
+  box-shadow: 0 10px 24px rgba(239, 68, 68, 0.32);
+  transform: translateY(-1px);
+}
+
+/* ====== COMPATIBILIDAD CON CLASES ANTIGUAS (por si algo más las usa) ====== */
+
 .header {
-  background: #1e293b;
-  color: white;
-  padding: 12px 25px;
+  composes: app-header;
+}
+
+.nav {
+  composes: app-header-nav;
+}
+
+.nav a {
+  composes: nav-link;
+}
+
+/* Si tu build no soporta `composes`, puedes dejarlas así como fallback:
+
+.header {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 10px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
 .nav a {
-  color: white;
-  margin-left: 15px;
+  color: #0f172a;
   text-decoration: none;
   font-weight: 500;
+  font-size: 0.95rem;
+  padding: 6px 10px;
+  border-radius: 999px;
 }
 
 .nav a:hover {
-  text-decoration: underline;
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+*/
+
+/* ====== RESPONSIVE ====== */
+
+@media (max-width: 768px) {
+  .app-header {
+    padding: 8px 14px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .app-header-title {
+    font-size: 1rem;
+  }
+
+  .app-header-nav {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .nav-link {
+    font-size: 0.85rem;
+    padding: 4px 8px;
+  }
+
+  .logout-btn {
+    padding: 5px 10px;
+    font-size: 0.85rem;
+  }
 }

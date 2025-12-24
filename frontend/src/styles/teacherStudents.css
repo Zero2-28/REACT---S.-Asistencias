@@ -1,0 +1,108 @@
+.teacher-students-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Header */
+.teacher-students-header {
+  margin-bottom: 4px;
+}
+
+.teacher-students-subtitle {
+  margin-top: 4px;
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+
+/* Tarjeta principal */
+.teacher-students-card {
+  background-color: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #dbeafe;
+  padding: 18px 20px;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+}
+
+/* Mensaje vacío */
+.teacher-students-empty {
+  font-size: 0.9rem;
+  color: #6b7280;
+  padding: 10px 2px;
+}
+
+/* Wrapper tabla */
+.teacher-students-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Tabla compacta, coherente con otros módulos */
+.table.table-sm th,
+.table.table-sm td {
+  padding: 6px 8px;
+  font-size: 0.85rem;
+}
+
+/* Pastillas de estado */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 90px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+/* Estados */
+.status-present {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+
+.status-late {
+  background-color: #fef9c3;
+  color: #92400e;
+}
+
+.status-excused {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+
+.status-absent {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+.status-none {
+  background-color: #e5e7eb;
+  color: #4b5563;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .teacher-students-card {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .teacher-students-page {
+    gap: 14px;
+  }
+
+  .teacher-students-card {
+    padding: 14px;
+  }
+
+  .status-pill {
+    min-width: 0;
+    padding: 3px 8px;
+  }
+}

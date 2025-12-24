@@ -23,11 +23,42 @@ export class InstitutionService {
         data.phone ?? null,
         data.email ?? null,
         data.logo_url ?? null,
-        data.subscription_status ?? "active"
+        data.subscription_status ?? "active",
       ]
     );
 
     const created = await db.query("SELECT TOP 1 * FROM institutions ORDER BY id DESC");
     return created[0];
+  }
+
+  // ✅ UPDATE
+  static async update(id: number, data: Partial<Institution>): Promise<Institution | null> {
+    await db.query(
+      `UPDATE institutions SET
+        name = ?, code = ?, address = ?, phone = ?, email = ?, logo_url = ?, subscription_status = ?
+       WHERE id = ?`,
+      [
+        data.name ?? null,
+        data.code ?? null,
+        data.address ?? null,
+        data.phone ?? null,
+        data.email ?? null,
+        data.logo_url ?? null,
+        data.subscription_status ?? null,
+        id,
+      ]
+    );
+
+    const rows = await db.query("SELECT * FROM institutions WHERE id = ?", [id]);
+    return rows.length > 0 ? rows[0] : null;
+  }
+
+  // ✅ DELETE
+  static async delete(id: number): Promise<boolean> {
+    const deleted = await db.query(
+      "DELETE FROM institutions OUTPUT DELETED.id WHERE id = ?",
+      [id]
+    );
+    return deleted.length > 0;
   }
 }

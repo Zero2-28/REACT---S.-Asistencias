@@ -9,6 +9,10 @@ import studentsRoutes from "./routes/students.routes";
 import teachersRoutes from "./routes/teachers.routes";
 import attendanceRoutes from "./routes/attendance.routes";
 import attendanceHistoryRoutes from "./routes/attendanceHistory.routes";
+import { devAuth } from "./middleware/devAuth";
+import authRoutes from "./routes/auth.routes";
+
+
 
 // Cargar variables de entorno
 dotenv.config();
@@ -26,6 +30,12 @@ app.use("/api/students", studentsRoutes);
 app.use("/api/teachers", teachersRoutes);
 app.use("/api/attendance", attendanceRoutes);
 app.use("/api/attendance-history", attendanceHistoryRoutes);
+app.use("/api/auth", authRoutes);
+
+// Middleware de autenticación para desarrollo
+app.use(devAuth);
+
+
 
 // Ruta inicial simple
 app.get("/", (req, res) => {

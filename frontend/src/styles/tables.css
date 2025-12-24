@@ -21,3 +21,16 @@
 .table tr:hover {
   background: #f8fafc;
 }
+
+.btn-primary {
+  background-color: #2563eb;
+  color: white;
+  padding: 10px 16px;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+}
