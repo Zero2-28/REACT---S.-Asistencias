@@ -8,3 +8,28 @@
   margin-bottom: 20px;
   color: #1e293b;
 }
+
+/* ====== ADMIN ====== */
+
+.admin-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
+  margin-top:18px;
+}
+.admin-card{
+  display:block;
+  padding:16px;
+  border-radius:16px;
+  background:#fff;
+  border:1px solid rgba(0,0,0,.08);
+  text-decoration:none;
+  color:inherit;
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+.admin-card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 30px rgba(2,6,23,.08);
+}
+.admin-card h3{ margin:0 0 6px; }
+.admin-card p{ margin:0; opacity:.8; }

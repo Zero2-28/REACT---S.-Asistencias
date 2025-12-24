@@ -3,8 +3,36 @@ import { Attendance } from "../models/attendance.model";
 
 export class AttendanceService {
 
-  static async getAll(): Promise<Attendance[]> {
-    return await db.query("SELECT * FROM attendance");
+  // ⭐ Obtener TODAS las asistencias con nombres de estudiante y docente
+  static async getAll() {
+    return await db.query(`
+      SELECT 
+        a.id,
+        a.student_id,
+        a.teacher_id,
+        a.institution_id,
+        a.date,
+        a.check_in_time,
+        a.check_out_time,
+        a.status,
+        a.notes,
+
+        -- Estudiante
+        us.name AS student_name,
+        s.student_code,
+
+        -- Docente
+        ut.name AS teacher_name,
+        t.teacher_code
+
+      FROM attendance a
+      LEFT JOIN students s ON s.id = a.student_id
+      LEFT JOIN users us ON us.id = s.user_id
+      LEFT JOIN teachers t ON t.id = a.teacher_id
+      LEFT JOIN users ut ON ut.id = t.user_id
+
+      ORDER BY a.date DESC;
+    `);
   }
 
   static async getById(id: number): Promise<Attendance | null> {
@@ -62,5 +90,28 @@ export class AttendanceService {
       [id]
     );
     return deleted.length > 0;
+  }
+
+  // ⭐ Obtener asistencias de un estudiante con nombre del docente
+  static async getByStudent(student_id: number) {
+    return await db.query(`
+      SELECT 
+        a.id,
+        a.date,
+        a.check_in_time,
+        a.check_out_time,
+        a.status,
+        a.notes,
+
+        -- Docente
+        t.teacher_code,
+        u.name AS teacher_name
+
+      FROM attendance a
+      LEFT JOIN teachers t ON t.id = a.teacher_id
+      LEFT JOIN users u ON u.id = t.user_id
+      WHERE a.student_id = ?
+      ORDER BY a.date DESC
+    `, [student_id]);
   }
 }
